@@ -1,0 +1,275 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>
+Chatbot
+</title>
+<style>
+body{
+  background-color: #e5e5e5;
+}
+
+.user{
+  display:block;
+  position:static;
+  margin:5px;
+  width:90%;
+  padding:10px;
+  background-color:#91bee0;
+  border-radius:50px;
+  right:0px;
+  margin-bottom:10px;
+  /*text-align:right;*/
+}
+.bot{
+
+  display:block;
+  position:static;
+  margin:5px;
+  width:90%;
+  padding:10px;
+  background-color:#e0e0e0;
+  border-radius:50px;
+  margin-bottom:10px;
+}
+a{
+  color:black;
+  font-size:150%;
+  margin-left:5%;
+  margin-right:5%;
+}
+p{
+  font-size:125%;
+  text-align:left;
+  padding-left:10px;
+  padding:right:10px;
+}
+.code{
+  font-family: monospace;
+  background-color:white;
+  border-radius:10px;
+  width:70%;
+  margin-left: 15%;
+  padding:10px;
+}
+</style>
+</head>
+<body>
+<img onclick="showbot();" style="border:5px #c9c9c9 solid;position:fixed;right:1vw;bottom:1vw;border-radius:50%;width:10%;z-index:100;" src="https://colerisetemp2.files.wordpress.com/2009/11/dock-icon-flat.png">
+
+<div style="padding:5px;position:absolute;text-align:center;background-color:#ededed;width:95%;overflow:hidden;border:10px #c9c9c9 solid;border-radius:10%;min-height:100vh;">
+<h1>
+  <u>
+chatbot.js
+</u>
+</h1>
+<div style="width:80%;margin-left:10%;border-top:7px black solid;border-bottom:7px black solid;">
+<div style="width:100%;text-align:center;margin-top:15px;border-bottom:7px black solid;padding-bottom:10px;">
+<a href="#about">
+About</a>
+<a href="#docs">
+Docs</a>
+<a href="#hire">
+Hire Us</a>
+</div>
+<h2 id="about">
+About
+</h2>
+<p>
+Chatbot.js is a lightweight framework that allows for easy building and deployment of chatbots for a variety of tasks. Chatbot.js comes with built in string matching and easy to use combinational logic and random reply matching. We are proud to provide chatbot.js under the MIT Open Source License.
+</p>
+<h2>
+Template
+</h2>
+<p data-height="265" data-theme-id="dark" data-slug-hash="EEbqXV" data-default-tab="js,result" data-user="zakerytclarke" data-embed-version="2" data-pen-title="Chatbot.js Template" class="codepen">See the Pen <a href="https://codepen.io/zakerytclarke/pen/EEbqXV/">Chatbot.js Template</a> by Zakery Clarke (<a href="https://codepen.io/zakerytclarke">@zakerytclarke</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<h2 id="docs">
+Documentation
+</h2>
+<p>
+Chatbot.js is simple once you understand its structure. A chatbot is comprised of different <b>states</b>, <b>replies</b> for those specific states, and <b>transitions</b> to change between differing states.
+</p>
+<p>
+<b>
+<u>
+State:</u></b> The chatbot is a state machine. This means it can facilitate different responses for different contexts. For example you might want a state that can provide jokes while another state is for providing contact information.
+</p>
+<p>
+<b>
+<u>
+Replies:</u></b> Replies are the responses that the bot will reply to for a given keyword. They can have multiple necessary keywords and multiple replies(that will be selected at random).
+</p>
+<p>
+<b>
+<u>
+Transitions:</u></b> In order to change state, we provide transitions which change when a given keyword is entered.
+</p>
+<h2>
+Example Code:
+</h2>
+<p>
+Create and initialize a chatbot:
+</p>
+<p class="code">
+var bot=new bot("name");
+</p>
+<p>
+Get the bot's response:
+</p>
+<p class="code">
+return=bot.reply(input);
+</p>
+<p>
+Create a state for the chatbot:
+</p>
+<p class="code">
+bot.addstate("state");
+</p>
+<p>
+Add a reply:
+</p>
+<p class="code">
+bot.addreply("state",["keyword"],["reply"]);
+</p>
+<p>
+Add a reply with a transition:
+</p>
+<p class="code">
+bot.addreply("previousstate",["keyword"],["reply"],"newstate");
+</p>
+<p>
+Add multiple replies:
+</p>
+<p class="code">
+bot.addreply("state",["keyword"],["reply1","reply2"]);<br>//picked at random
+</p>
+
+<p>
+Add multiple required keywords:
+</p>
+<p class="code">
+bot.addreply("state",["keyword1","keyword2"],["reply"]);<br>//both are required
+</p>
+
+<p>
+Set a state's default reply:
+</p>
+<p class="code">
+bot.addreply("state",["default"],["reply"]);
+</p>
+
+<p>
+Set the reply for an unknown keyword:
+</p>
+<p class="code">
+bot.addreply("state",["n/a"],["reply"]);
+</p>
+
+<h2 id="hire">
+Hire Us
+</h2>
+<p>
+Want an awesome chatbot to improve your customer service, but don't have the skills or the time necessary to learn from all the docs? We'd be happy to create a reliable, easily embeddable chatbot that is tailored to your business or personal needs. Please feel free to email me at <a style="margin:0px;font-size:100%;" href="mailto:zakerytclarke@gmail.com">zakerytclarke@gmail.com.</a>
+</p>
+</div>
+<div style="width:100%;text-align:center;margin-top:15px;">
+<a href="https://opensource.org/licenses/MIT" target="_blank">
+MIT License 2018</a>
+<a href="https://github.com/zakerytclarke/chatbot.js" target="_blank">
+Fork me on Github</a>
+
+</div>
+
+</div>
+<div id="chatbotdiv" style="left:27%;top:10%;position:fixed;background-color:#ededed;width:50%;height:80%;overflow:hidden;border:10px #c9c9c9 solid;border-radius:10%;display:none;">
+
+  <div id="msg" style="height:80%;overflow-y:scroll;overflow-x:hidden;display:block;width:98%;margin-top:10px;">
+
+  <div class="bot">
+  Hi there. My name is Chester Chatbot! How can I help you?
+  </div>
+
+
+
+  </div>
+   <div style="height:15%;">
+
+  <input id="textio" type="text" style="width:75%;margin-left:3%;height:60%;vertical-align:middle;">
+  <button onclick="adduser();" type="submit" style="border-radius:5px;max-width:15%;vertical-align:middle;max-height:100%;">
+  <img src="http://zakerytclarke.github.io/assets/materialicons/send.png" style="width:100%;">
+    </div>
+  </button>
+  </div>
+<script src="chatbot.js">
+</script>
+<script>
+var bot=new chatbot("Bot");
+bot.addreply("default",["hi"],["Hello there!"]);
+bot.addreply("default",["what","you","do"],["I can perform a variety of tasks. Why not ask me about "]);
+bot.addreply("default",["quit"],["Goodbye, let me know if you need any more assistance."],"menu")
+//
+bot.addreply("default",["how","are","you"],["I'm doing quite good, thanks for asking. Can I help you with something?","The diodes in my left side are hurting quite badly today... But nevermind me, how can I help you?"]);
+
+bot.addreply("default",["hello"],["Hi there! How can I help you?"]);
+bot.addreply("default",["hi"],["Hi there! How can I help you?"]);
+bot.addreply("default",["what","your","name"],["My name is Chester Chatbot; Can I help you with something? "]);
+bot.addreply("default",["do","you","have","name"],["My name is Chester Chatbot; How can I help you?"]);
+bot.addreply("default",["do","you","like"],["I don't have many preferences... except my favorite hosting service is Github! Is there something I can help you with?"]);
+bot.addreply("default",["no"],["Well there's no reason to be negative. How can I help you?"]);
+bot.addreply("default",["what","can","you","do"],["I am able to assist you in many tasks. Try one of these choices: episode recommendations, listener survey, store or profiles."]);
+bot.addreply("default",["who","are","you"],["I am ChatBot, human cyborg relations. I am fluent in over 6 million forms of communication. How can I help you?"]);
+
+
+
+
+
+function showbot(){
+
+  if(document.getElementById("chatbotdiv").style.display=="block"){
+    document.getElementById("chatbotdiv").style.display="none";
+  }else{
+    document.getElementById("chatbotdiv").style.display="block";
+  }
+}
+
+
+function addbot(msg){
+  var p=document.getElementById("msg");
+    var newelem=document.createElement("div");
+newelem.setAttribute('class',"bot");
+    newelem.innerHTML=msg;
+p.appendChild(newelem);
+  scroll("msg");
+}
+
+function adduser(){
+  var input=document.getElementById("textio").value;
+
+if(input!=null&&input!=""){
+
+  var p=document.getElementById("msg");
+    var newelem=document.createElement("div");
+newelem.setAttribute('class',"user");
+  newelem.innerHTML=input;
+  document.getElementById("textio").value="";
+p.appendChild(newelem);
+addbot(bot.reply(input));
+}
+
+}
+
+function scroll(id){
+   var div = document.getElementById(id);
+   div.scrollTop = div.scrollHeight - div.clientHeight;
+}
+
+
+document.body.addEventListener( 'keyup', function (e) {
+  if ( e.keyCode == 13 ) {
+adduser();
+  }
+});
+
+</script>
+</body>
+</html>
