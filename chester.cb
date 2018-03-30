@@ -1,0 +1,42 @@
+function test(){
+alert("");
+}
+
+var bot=new chatbot("Chester ChatBot");
+
+bot.addreply("default",["how"],["I don't understand everything yet, let me get back to you."]);
+bot.addreply("default",["where"],["I'm not quite sure. I've always been bad at locations."]);
+
+bot.addreply("default",["hi"],["Hello there!"]);
+bot.addreply("default",["what","you","do"],["I can perform a variety of tasks. Ask me to tell you a joke, give you a weather report ot let's just have a conversation!"]);
+bot.addreply("default",["quit"],["Goodbye, let me know if you need any more assistance."]);
+bot.addreply("default",["bye"],["Goodbye, let me know if you need any more assistance."]);
+
+bot.addreply("default",["how","are","you"],["I'm doing quite well, thanks for asking. Can I help you with something?","The diodes in my left side are hurting quite badly today... But nevermind me, how can I help you?"]);
+bot.addreply("default",["hello"],["Hi there! How can I help you?"]);
+bot.addreply("default",["hey"],["Hello there! How can I help you?"]);
+bot.addreply("default",["good","morning"],["Hi there! How can I help you?"]);
+bot.addreply("default",["good","afternoon"],["Hello there! How can I help you?"]);
+bot.addreply("default",["good","evening"],["Hi there! How can I help you?"]);
+
+bot.addreply("default",["what","your","name"],["My name is Chester Chatbot; Can I help you with something? "]);
+bot.addreply("default",["do","you","have","name"],["My name is Chester Chatbot; How can I help you?"]);
+bot.addreply("default",["do","you","like"],["I don't have many preferences... except my favorite color is #3076a5! Is there something I can help you with?"]);
+bot.addreply("default",["no"],["Well there's no reason to be negative. How can I help you?"]);
+bot.addreply("default",["who","are","you"],["I am Chester Chatbot, human cyborg relations. I am fluent in over 6 million forms of communication. How can I help you?"]);
+bot.addreply("default",["joke"],["Did you hear about the new anti-gravity book? Apparently you can't put it down.","Did you hear about the quarry that went out of business? They hit rock bottom.","Why do cows have bells? Because their horns don't work.","What do you do if you see a spaceman? you park your car, man.","Why do fish live in saltwater? Because pepper water makes them sneeze?","The past the present and the future walk into a bar. It was tense."]);
+bot.addreply("default",["weather"],["I'm studying to become a meteorologist, but I'm not quite there yet."]);
+
+
+bot.addreply("default",["who","created","you"],["What makes you think I was created?"]);
+bot.addreply("default",["smart"],["I think a general IQ is nonsense, I am smart in many different ways."]);
+bot.addreply("default",["iq"],["I think a general IQ is nonsense, I am smart in many different ways."]);
+bot.addreply("default",["document"],["Sure, let me show you the docs."]);
+bot.addreply("default",["docs"],["Sure, let me show you the docs."]);
+
+bot.addreply("default",["fuck"],["Now now, there's no need for profanity.","You seem upset...","Do you kiss your mother with that mouth?"]);
+bot.addreply("default",["slut"],["Now now, there's no need for profanity.","You seem upset...","Do you kiss your mother with that mouth?"]);
+bot.addreply("default",["dick"],["Now now, there's no need for profanity.","You seem upset...","Do you kiss your mother with that mouth?"]);
+bot.addreply("default",["bitch"],["Now now, there's no need for profanity.","You seem upset...","Do you kiss your mother with that mouth?"]);
+bot.addreply("default",["cunt"],["Now now, there's no need for profanity.","You seem upset...","Do you kiss your mother with that mouth?"]);
+bot.addreply("default",["shit"],["Now now, there's no need for profanity.","You seem upset...","Do you kiss your mother with that mouth?"]);

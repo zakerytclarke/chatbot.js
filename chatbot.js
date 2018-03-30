@@ -2,7 +2,7 @@ function chatbot(name){
   this.name=name;
   this.states=[];
   this.state="default";
-
+  this.func=[];
   this.transitions=[];
   this.reply=function(input){
     var output="";
@@ -22,11 +22,14 @@ function chatbot(name){
           }
           if(contains<=0){
             output=this.states[this.state].replies[words][Math.floor(Math.random()*this.states[this.state].replies[words].length)];
-            if(this.states[this.state].transitions[key]!=null){
+            if(this.states[this.state].transitions[key]!=null&&this.states[this.state].transitions[key]!=""){
               this.state=this.states[this.state].transitions[key];
-               console.log(this.states[this.state].replies["default"]);
               output+="\n"+this.states[this.state].replies["default"][Math.floor(Math.random()*this.states[this.state].replies["default"].length)];
             }
+            console.log(this.states[this.state]);
+            if(this.states[this.state].func[key]!=null&&this.states[this.state].func[key]!=""){
+              window[this.states[this.state].func[key]]();
+              }
           }
 
 
@@ -41,10 +44,13 @@ function chatbot(name){
   this.addstate=function(name){
     this.states[name]=new state();
   }
-  this.addreply=function(state,key,msg,transition){
+  this.addreply=function(state,key,msg,transition,func){
         key.sort();
         this.states[state].replies[key]=msg;
         this.states[state].transitions[key]=transition;
+        if(func!=null){
+            this.states[state].func[key]=func;
+        }
   }
   this.addmsg=function(state,msg){
     this.states[state].msg=msg;
@@ -52,7 +58,8 @@ function chatbot(name){
   function state(){
     this.replies={"n/a":["Not sure how to help with that."],"default":[""]};
     this.transitions={"n/a":null,"default":null};
-  }
+    this.func={"n/a":null,"default":null};
+    }
   this.see=function(){
     console.log(this.states);
   }

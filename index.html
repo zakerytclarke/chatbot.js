@@ -55,7 +55,7 @@ p{
 </style>
 </head>
 <body>
-<img onclick="showbot();" style="border:5px #c9c9c9 solid;position:fixed;right:1vw;top:1vw;border-radius:50%;width:10%;z-index:100;" src="https://colerisetemp2.files.wordpress.com/2009/11/dock-icon-flat.png">
+<img onclick="showbot();" style="border:5px #c9c9c9 solid;position:fixed;right:1vw;top:1vw;border-radius:50%;width:10%;z-index:100;" src="robut.png">
 
 <div style="padding:5px;position:absolute;text-align:center;background-color:#ededed;width:95%;overflow:hidden;border:10px #c9c9c9 solid;border-radius:10%;min-height:100vh;">
 <h1>
@@ -156,6 +156,15 @@ Add multiple required keywords:
 <p class="code">
 bot.addreply("state",["keyword1","keyword2"],["reply"]);<br>//both are required
 </p>
+<p>
+Call a function for a specific keyword:
+</p>
+<p class="code">
+bot.addreply("state",["keyword"],["reply"],"","funcname");
+function funcname(){
+  alert("It worked!");
+}
+</p>
 
 <p>
 Set a state's default reply:
@@ -208,23 +217,16 @@ Fork me on Github</a>
   </div>
 <script src="chatbot.js">
 </script>
+<script src="chester.cb">
+</script>
 <script>
-var bot=new chatbot("Bot");
-bot.addreply("default",["hi"],["Hello there!"]);
-bot.addreply("default",["what","you","do"],["I can perform a variety of tasks. Why not ask me about "]);
-bot.addreply("default",["quit"],["Goodbye, let me know if you need any more assistance."],"menu")
-//
-bot.addreply("default",["how","are","you"],["I'm doing quite good, thanks for asking. Can I help you with something?","The diodes in my left side are hurting quite badly today... But nevermind me, how can I help you?"]);
 
-bot.addreply("default",["hello"],["Hi there! How can I help you?"]);
-bot.addreply("default",["hi"],["Hi there! How can I help you?"]);
-bot.addreply("default",["what","your","name"],["My name is Chester Chatbot; Can I help you with something? "]);
-bot.addreply("default",["do","you","have","name"],["My name is Chester Chatbot; How can I help you?"]);
-bot.addreply("default",["do","you","like"],["I don't have many preferences... except my favorite hosting service is Github! Is there something I can help you with?"]);
-bot.addreply("default",["no"],["Well there's no reason to be negative. How can I help you?"]);
-bot.addreply("default",["what","can","you","do"],["I am able to assist you in many tasks. Try one of these choices: episode recommendations, listener survey, store or profiles."]);
-bot.addreply("default",["who","are","you"],["I am ChatBot, human cyborg relations. I am fluent in over 6 million forms of communication. How can I help you?"]);
-
+if (screen.height>screen.width) {
+document.getElementsByTagName( "html" )[0].style[ "font-size" ] = "150%;"
+document.getElementById("chatbotdiv").height="90%";
+document.getElementById("chatbotdiv").width="80%";
+document.getElementById("chatbotdiv").left="01vw";
+}
 
 
 
@@ -259,6 +261,7 @@ newelem.setAttribute('class',"user");
   newelem.innerHTML=input;
   document.getElementById("textio").value="";
 p.appendChild(newelem);
+
 addbot(bot.reply(input));
 }
 
