@@ -26,7 +26,6 @@ function chatbot(name){
               this.state=this.states[this.state].transitions[key];
               output+="\n"+this.states[this.state].replies["default"][Math.floor(Math.random()*this.states[this.state].replies["default"].length)];
             }
-            console.log(this.states[this.state]);
             if(this.states[this.state].func[key]!=null&&this.states[this.state].func[key]!=""){
               window[this.states[this.state].func[key]]();
               }
