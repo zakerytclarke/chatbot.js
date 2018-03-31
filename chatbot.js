@@ -37,6 +37,15 @@ function chatbot(name){
     }
     if(output==""){
       output=this.states[this.state].replies["n/a"];
+      //
+      if(this.states[this.state].transitions["n/a"]!=null&&this.states[this.state].transitions["n/a"]!=""){
+        this.state=this.states[this.state].transitions["n/a"];
+        output+="\n"+this.states[this.state].replies["default"][Math.floor(Math.random()*this.states[this.state].replies["default"].length)];
+      }
+      if(this.states[this.state].func["n/a"]!=null&&this.states[this.state].func["n/a"]!=""){
+        window[this.states[this.state].func["n/a"]]();
+      }
+      //
     }
     return output;
   }
