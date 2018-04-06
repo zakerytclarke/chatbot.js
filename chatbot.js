@@ -1,10 +1,12 @@
 function chatbot(name){
   this.name=name;
+  this.input="";
   this.states=[];
   this.state="default";
   this.func=[];
   this.transitions=[];
   this.reply=function(input){
+    this.input=input;
     var output="";
     var end="false";
     if(input==null||input==""){
@@ -26,6 +28,7 @@ function chatbot(name){
               this.state=this.states[this.state].transitions[key];
               output+="\n"+this.states[this.state].replies["default"][Math.floor(Math.random()*this.states[this.state].replies["default"].length)];
             }
+          //  console.log(this.states[this.state]);
             if(this.states[this.state].func[key]!=null&&this.states[this.state].func[key]!=""){
               window[this.states[this.state].func[key]]();
               }
@@ -37,15 +40,6 @@ function chatbot(name){
     }
     if(output==""){
       output=this.states[this.state].replies["n/a"];
-      //
-      if(this.states[this.state].transitions["n/a"]!=null&&this.states[this.state].transitions["n/a"]!=""){
-        this.state=this.states[this.state].transitions["n/a"];
-        output+="\n"+this.states[this.state].replies["default"][Math.floor(Math.random()*this.states[this.state].replies["default"].length)];
-      }
-      if(this.states[this.state].func["n/a"]!=null&&this.states[this.state].func["n/a"]!=""){
-        window[this.states[this.state].func["n/a"]]();
-      }
-      //
     }
     return output;
   }
