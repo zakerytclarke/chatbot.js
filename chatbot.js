@@ -1,6 +1,7 @@
 function chatbot(name){
   this.name=name;
   this.input="";
+  this.na="Not sure how to help with that.";
   this.states=[];
   this.state="default";
   this.func=[];
@@ -58,7 +59,7 @@ function chatbot(name){
     this.states[state].msg=msg;
   }
   function state(){
-    this.replies={"n/a":["Not sure how to help with that."],"default":[""]};
+    this.replies={"n/a":[this.na],"default":[""]};
     this.transitions={"n/a":null,"default":null};
     this.func={"n/a":null,"default":null};
     }
